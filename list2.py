@@ -29,11 +29,11 @@ __author__ = "Meagan Ramey"
 
 def remove_adjacent(nums):
     # your code here
-    # nums2 = nums.copy()
-    nums2 = [i for i, x in nums if x != x-1]
-        # if nums.count(nums[i]) > 1:
-            # nums.remove(nums[i])
-    return nums2
+    answer = []
+    for i in nums:
+        if i not in answer[-1:]:
+            answer.append(i)
+    return answer
 
 
 # E. zip_merge
@@ -48,7 +48,11 @@ def remove_adjacent(nums):
 
 def zip_merge(list1, list2):
     # your code here
-    return
+    list3 = list(zip(list1, list2))
+    answer = []
+    for i in list3:
+        answer.append(''.join(i))
+    return answer
 
 
 # F. empty_filter
@@ -62,7 +66,7 @@ def zip_merge(list1, list2):
 
 def empty_filter(list1):
     # your code here
-    return
+    return [i for i in list1 if i]
 
 
 # G. linear_merge
@@ -78,7 +82,15 @@ def empty_filter(list1):
 
 def linear_merge(list1, list2):
     # your code here
-    return
+    answer = []
+    while list1 and list2:
+        if list1[0] <= list2[0]:
+            answer.append(list1.pop(0))
+        else:
+            answer.append(list2.pop(0))
+    answer.extend(list1)
+    answer.extend(list2)
+    return answer
 
 
 # Provided simple test() function used in main() to print
