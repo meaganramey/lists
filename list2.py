@@ -29,7 +29,11 @@ __author__ = "Meagan Ramey"
 
 def remove_adjacent(nums):
     # your code here
-    return
+    # nums2 = nums.copy()
+    nums2 = [i for i, x in nums if x != x-1]
+        # if nums.count(nums[i]) > 1:
+            # nums.remove(nums[i])
+    return nums2
 
 
 # E. zip_merge

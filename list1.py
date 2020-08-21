@@ -27,7 +27,13 @@ __author__ = "Meagan Ramey"
 
 def match_ends(words):
     # your code here
-    return
+    count = 0
+    for i in words:
+        if len(i) > 1:
+            if i[0] == i[-1]:
+                count += 1
+        continue
+    return count
 
 
 # B. front_x
@@ -43,7 +49,15 @@ def match_ends(words):
 
 def front_x(words):
     # your code here
-    return
+    x_only = []
+    words2 = []
+    words.sort()
+    for i in words:
+        if i[0] == 'x':
+            x_only.append(i)
+        else:
+            words2.append(i)
+    return x_only + words2
 
 
 # C. sort_last
@@ -57,7 +71,10 @@ def front_x(words):
 
 def sort_last(tuples):
     # your code here
-    return
+    def getKey(element):
+        return element[-1]
+    tuples.sort(key=getKey)
+    return tuples
 
 
 # Provided simple test() function used in main() to print
